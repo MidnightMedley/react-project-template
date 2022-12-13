@@ -17,8 +17,10 @@ npm run serve
 
 To build:
 
-`npm run build`
+```
+npm run build
+```
 
-> It builds with the code already minified
+*It builds with the code already minified!*
 
-Have fun!
+Have fun =)
