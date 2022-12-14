@@ -6,9 +6,6 @@ export const ErrorPage = () => {
   console.log(error)
 
   return(
-    <>
-      <p>Error page</p>
-      <p>{ error.statusText || error.message }</p>
-    </>
+    <p>{ error.statusText || error.message }</p>
   )
 }

@@ -8,16 +8,17 @@ import {
   ErrorPage
 } from './pages'
  
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-    errorElement: <ErrorPage />
-  }
-])
-
 export const App = () => {
+
   return(
-    <RouterProvider router={router} />
+    <RouterProvider router={
+      createBrowserRouter([
+        {
+          path: '/',
+          element: <Home />,
+          errorElement: <ErrorPage />
+        }
+      ])
+    } />
   )
 }

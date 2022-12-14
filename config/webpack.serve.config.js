@@ -12,9 +12,37 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [ '@babel/preset-react' ]
+            presets: [ '@babel/preset-react' ],
+            plugins: [
+              [
+              'babel-plugin-react-scoped-css',
+              { "include": ".local.(sa|sc|c)ss$" }
+              ]
+            ]
+
           }
         }
+      },
+      {
+        test: /\.(sc|c|sa)ss$/i,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 2
+            }
+          },
+          {
+            loader: 'scoped-css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       }
     ]
   },
@@ -31,4 +59,4 @@ module.exports = {
     compress: true,
     port: 9000,
   }
-};
+}
