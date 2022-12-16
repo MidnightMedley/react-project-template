@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const WebpackBundleAnalyzer = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const EsLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -59,6 +60,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new EsLintPlugin({
+      failOnError: true,
+      failOnWarning: true
+    }),
     new MiniCssExtractPlugin(),
     new WebpackBundleAnalyzer(),
     new HtmlWebpackPlugin({
